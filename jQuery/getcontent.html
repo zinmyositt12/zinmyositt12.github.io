@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Get Content</title>
+</head>
+<body>
+	<h3>This is <i>jQuery</i></h3>
+	<input type="text" name="name" id="name">
+	<h1 id="content"></h1>
+	<p id="content_html"></p>
+	<button id="click">Click</button>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#click').click(function(){
+		var get_text=$('h3').text();
+		var get_html=$('h3').html();
+		// alert(get_html);
+		var name=$('#name').val();
+		$('#content').text(name);
+		$('#content_html').html(`<h3>${name}</h3>`);
+		// alert(name);
+	})
+})</script>
+</body>
+</html>

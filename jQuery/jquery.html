@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery</title>
+</head>
+<body>
+	<h1>jQuery is Funny!</h1>
+	<button id="btn_hide">Hide</button>
+	<button id="btn_show">Show</button>
+	<h3>This is h3 tag.</h3>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	// $('selector').action(callback){}
+	$(document).ready(function(){
+		$('#btn_hide').click(function(){
+			$('h3').hide(300,function(){
+				alert("h3 tag is hide");
+			});
+		});
+		$("#btn_show").click(function(){
+			$('h3').show();
+		})
+	})
+	alert("Hello JQuery");
+</script>
+</body>
+</html>

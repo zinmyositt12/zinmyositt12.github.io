@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>jQuery is Funny!</h1>
+	<button id="btn_hide">Hide</button>
+	<button id="btn_show">Show</button>
+	<button id="btn_toggle">Toggle</button>
+	<h3>This is h3 tag.</h3>
+	<button class="btn_fadeout">FadeOut</button>
+	<button class="btn_fadein">FadeIn</button>
+	<button class="btn_fadetoggle">FadeToggle</button>
+	<h2 class="h2">This is h2 tag.</h2>
+	<h1 id="h1">This is h1 tag.</h1>
+	<button id="show_h1">Show h1 Tag</button>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	// $('selector').action(callback){}
+	$(document).ready(function(){
+		$('#btn_hide').click(function(){
+			$('h3').hide(300,function(){
+				alert("h3 tag is hide");
+			});
+		});
+		$("#btn_show").click(function(){
+			$('h3').show();
+		});
+		$("#btn_toggle").click(function(){
+			$('h3').toggle();
+		});
+		$(".btn_fadeout").click(function(){
+			$('.h2').fadeOut();
+		});
+		$(".btn_fadein").click(function(){
+			$('.h2').fadeIn();
+		});
+		$(".btn_fadetoggle").click(function(){
+			$('.h2').fadeToggle();
+		});
+		$('#show_h1').hide();
+		$('#h1').click(function(){
+			$(this).fadeOut(function(){
+				$('#show_h1').show();
+			});
+		});
+		$('#show_h1').click(function(){
+			$('#h1').fadeIn();
+			$(this).hide();
+		});
+	})
+</script>
+</body>
+</html>

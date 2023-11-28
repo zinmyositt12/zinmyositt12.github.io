@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.democracy{
+			max-width: 200px;
+			background-color: red;
+			color: white;
+			padding: 50px 0;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<p>We Want Democarcy</p>
+	<button id="add_class">Add Class</button>
+	<button id="remove_class">Remove Class</button>
+	<button id="toggle_class">Toggle Class</button>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#add_class').click(function(){
+			$('p').addClass('democracy');
+		})
+		$('#remove_class').click(function(){
+			$('p').removeClass('democracy');
+		})
+		$('#toggle_class').click(function(){
+			$('p').toggleClass('democracy');
+		})
+	})
+</script>
+</body>
+</html>
