@@ -1,0 +1,69 @@
+@font-face{
+	font-family: playfair;
+	src:url(../../Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
+}
+@font-face{
+	font-family: lobster;
+	src:url(../../Lobster/Lobster-Regular.ttf);
+}
+.font{
+	font-family: playfair;
+}
+.logo{
+	width: 90px;
+	height: 70px;
+}
+
+.logo_text{
+	font-family: lobster;
+	margin-left: -45px;
+}
+.font_style{
+	font-family: lobster;	
+}
+.carousel_text{
+	position: absolute;
+	top: 170px;
+	left: 140px;
+}
+@media only screen  and (max-width: 1400px) and (min-width: 1024px){
+.carousel_text{
+	position: absolute;
+	top: 170px;
+	left: 140px;
+}
+}
+
+@media only screen  and (max-width: 1024px) and (min-width: 768px){
+.carousel_text{
+	position: absolute;
+	top: 110px;
+	left: 120px;
+}
+}
+
+@media only screen  and (max-width: 768px) and (min-width: 428px){
+.carousel_text{
+	position: absolute;
+	top: 70px;
+	left: 90px;
+}
+}
+
+hr.divided{
+	width: 100px;
+	margin:15px auto;
+	border: 1px solid #3394b5;
+}
+
+
+.background_image{
+	background-image: url(../../images/background.jpg);
+	background-attachment: fixed;
+}
+hr.divde{
+	width: 50px;
+	margin: auto;
+}
+
+

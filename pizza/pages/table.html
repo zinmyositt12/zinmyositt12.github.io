@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkout</title>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu_Items</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/all.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .margin {
+        margin-top: 10vh;
+      }
+    </style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<nav>
+	<div class="logo">
+        <a href=""><img src="../images/logo_info.jpg" alt="" width="70" height="50"></a>
+      
+        
+   </div> 
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="menu-items.html">Our Menu</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+</nav>	
+
+<h2>
+	<a href="../index.html">Shop</a>
+	<a href="menu-items.html">Item(<span id="count"></span>)</a>
+</h2>
+<table class="container">
+	<thead>
+		<tr>
+			<th><h1>No.</h1></th>
+			<th><h1>Name</h1></th>
+			<th><h1>Price</h1></th>
+			<th><h1>Qty</h1></th>
+			<th><h1>Amount</h1></th>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
+	</tbody>
+</table>
+<br><br>
+
+	<div class="text-center">
+	<a href="menu-items.html"><button class="btn btn-warning mx-5 ms-5 px-3 my-5"><h5 class="p-1">Order Now</h5></button></a>
+	</div>
+
+	
+	<script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="style.js"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			count();
+			getData();
+
+			function getData(){
+				var shop_str=localStorage.getItem('itshop');
+				if (shop_str){
+					var shop_arr=JSON.parse(shop_str);
+					var html="";
+					var j=1;
+					var total=0;
+					$.each(shop_arr,function(i,v){
+						var amount=v.qty*v.price;
+						html+=`<tr>
+						<td>${j++}</td>
+						<td>${v.name}</td>
+						<td>${v.price}</td>
+						<td>
+						<button class="min btn btn-light" data-key="${i}"> - </button>
+						${v.qty}
+						<button class="max btn btn-light" data-key="${i}"> + </button>
+						</td>
+						<td>${amount}</td>
+						</tr>`;
+						total+=amount;
+					})
+					html+=`<tr>
+					<td colspan="4">Total</td>
+					<td>${total}</td></tr>`
+					$('tbody').html(html);
+				};
+			};
+
+			$('tbody').on('click','.min',function(){
+				var key=$(this).data('key');
+				var shop_str=localStorage.getItem('itshop');
+				if (shop_str){
+					var shop_arr=JSON.parse(shop_str);
+
+					$.each(shop_arr,function(i,v){
+						if(key==i){
+							v.qty--;
+							if (v.qty==0){
+								shop_arr.splice(key,1);
+							}
+						}
+					})
+					var shopData=JSON.stringify(shop_arr);
+					localStorage.setItem('itshop',shopData);
+					getData();
+					count();
+				}
+			})
+
+			$('tbody').on('click','.max',function(){
+				var key=$(this).data('key');
+				var shop_str=localStorage.getItem('itshop');
+				if (shop_str){
+					var shop_arr=JSON.parse(shop_str);
+
+					$.each(shop_arr,function(i,v){
+						if(key==i){
+							v.qty++;
+							
+						}
+				
+					var shopData=JSON.stringify(shop_arr);
+					localStorage.setItem('itshop',shopData);
+					getData();
+					count();
+					})
+				}
+			})
+		});
+
+	</script>
+
+
+
+</body>
+
+<footer>
+	<h4>Pizza</h4>
+	<div class="footer-div">
+	  <div>
+		<h5>Address</h5>
+		<p>123 Street, Yangon, Myanmar</p>
+		<p>Hotline: +95 912 345 678</p>
+		<p>Email: pizzaspecialist@gmail.com</p>
+	  </div>
+	  <div>
+		<h5>Opening hours</h5>
+		<p>Monday - Friday</p>
+		<p>10.00 AM - 11.00 PM</p>
+	  </div>
+	  <div>
+		<h5>Social Media</h5>
+		<i class="fab fa-facebook-f"></i>
+		<i class="fab fa-facebook-messenger"></i>
+		<i class="fab fa-instagram"></i>
+		<i class="fab fa-twitter"></i>
+	  </div>
+	</div>
+	<p class="footer-text">&copy; 2023, pizzaspecialist. All rights reserved.</p>
+  </footer>
+
+</html>
